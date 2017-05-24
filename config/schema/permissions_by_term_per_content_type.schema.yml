@@ -1,0 +1,13 @@
+permissions_by_term_per_content_type.settings:
+  type: config_object
+  label: 'Permission by term per content type settings'
+  mapping:
+    permissions_by_term_per_content_type_track:
+      type: sequence
+      label: 'Configuration for each content_type'
+      sequence:
+        type: sequence
+        label: 'Content type name'
+        sequence:
+          type: string
+          label: 'Taxonomy field name'

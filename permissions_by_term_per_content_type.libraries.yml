@@ -1,0 +1,5 @@
+alert_message:
+  version: 1.0.0
+  css:
+    theme:
+      css/permissions_by_term_per_content_type.css: {}

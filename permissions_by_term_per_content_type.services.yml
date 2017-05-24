@@ -1,0 +1,23 @@
+services:
+    permissions_by_term_per_content_type.kernel_event_listener:
+        class: Drupal\permissions_by_term_per_content_type\KernelEventListener
+        arguments: []
+        tags:
+            - { name: event_subscriber }
+    permissions_by_term_per_content_type.access_check:
+        class: Drupal\permissions_by_term_per_content_type\AccessCheck
+        arguments: ['@entity.manager']
+    permissions_by_term_per_content_type.access_storage:
+        class: Drupal\permissions_by_term_per_content_type\AccessStorage
+        arguments: ['@database']
+    permissions_by_term_per_content_type.node_access_record_factory:
+        class: \Drupal\permissions_by_term_per_content_type\Factory\NodeAccessRecordFactory
+    permissions_by_term_per_content_type.node_access:
+        class: \Drupal\permissions_by_term_per_content_type\NodeAccess
+        arguments: ['@permissions_by_term_per_content_type.access_storage', '@permissions_by_term_per_content_type.node_access_record_factory', '@entity.manager', '@permissions_by_term_per_content_type.access_check', '@database']
+    permissions_by_term_per_content_type.route_subscriber:
+        class: Drupal\permissions_by_term_per_content_type\Routing\RouteSubscriber
+        arguments: ['@entity.manager']
+        tags:
+          - { name: event_subscriber }
+

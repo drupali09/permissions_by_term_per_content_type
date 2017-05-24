@@ -1,0 +1,3 @@
+permissions_by_term_per_content_type.config:
+  class: \Drupal\Core\Menu\LocalTaskDefault
+  deriver: \Drupal\permissions_by_term_per_content_type\Plugin\Derivative\PermissionsByTermPerContentTypeConfigTask
